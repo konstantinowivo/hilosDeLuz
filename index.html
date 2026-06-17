@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hilos de Luz - Lámparas Artesanales</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,6 +24,14 @@
                     <li><a href="#sobre-nosotros">Nosotros</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
+                <div class="nav-social">
+                    <a href="https://www.instagram.com/hilosdeluz" target="_blank" aria-label="Instagram" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.facebook.com/hilosdeluz" target="_blank" aria-label="Facebook" class="social-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </div>
                 <div class="hamburger">
                     <span></span>
                     <span></span>
@@ -44,84 +56,27 @@
             <h2 class="section-title">Nuestro Catálogo</h2>
             <p class="section-subtitle">Descubre nuestras colecciones únicas</p>
 
-            <div class="catalog-grid">
-                <!-- Product Card 1 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="resources/img_1.png" alt="Lámpara Colgante">
-                    </div>
-                    <div class="product-info">
-                        <h3>Lámpara Colgante</h3>
-                        <p class="product-description">Diseño minimalista perfecto para comedores</p>
-                        <p class="product-price">$45.000</p>
-                        <button class="btn-secondary">Consultar</button>
-                    </div>
-                </div>
+            <!-- Category Filter -->
+            <div class="category-filter">
+                <label for="category-select">Línea de productos:</label>
+                <select id="category-select" class="category-dropdown">
+                    <option value="all">Todas las líneas</option>
+                    <option value="calma">Calma</option>
+                    <option value="natural">Natural</option>
+                    <option value="ecologica">Ecológica</option>
+                </select>
+            </div>
 
-                <!-- Product Card 2 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="resources/img_2.png" alt="Lámpara de Mesa">
-                    </div>
-                    <div class="product-info">
-                        <h3>Lámpara de Mesa</h3>
-                        <p class="product-description">Ideal para escritorios y mesas de noche</p>
-                        <p class="product-price">$32.000</p>
-                        <button class="btn-secondary">Consultar</button>
-                    </div>
-                </div>
+            <div id="catalog-loading" class="catalog-loading">
+                <p>Cargando productos...</p>
+            </div>
 
-                <!-- Product Card 3 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="resources/img_3.png" alt="Lámpara de Piso">
-                    </div>
-                    <div class="product-info">
-                        <h3>Lámpara de Piso</h3>
-                        <p class="product-description">Perfecta para rincones de lectura</p>
-                        <p class="product-price">$58.000</p>
-                        <button class="btn-secondary">Consultar</button>
-                    </div>
-                </div>
+            <div id="catalog-error" class="catalog-error" style="display: none;">
+                <p>Error al cargar los productos. Por favor, intenta más tarde.</p>
+            </div>
 
-                <!-- Product Card 4 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="resources/img_4.png" alt="Lámpara Vintage">
-                    </div>
-                    <div class="product-info">
-                        <h3>Lámpara Vintage</h3>
-                        <p class="product-description">Estilo retro con acabados especiales</p>
-                        <p class="product-price">$52.000</p>
-                        <button class="btn-secondary">Consultar</button>
-                    </div>
-                </div>
-
-                <!-- Product Card 5 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="resources/img_5.png" alt="Lámpara Industrial">
-                    </div>
-                    <div class="product-info">
-                        <h3>Lámpara Industrial</h3>
-                        <p class="product-description">Diseño moderno con materiales robustos</p>
-                        <p class="product-price">$48.000</p>
-                        <button class="btn-secondary">Consultar</button>
-                    </div>
-                </div>
-
-                <!-- Product Card 6 -->
-                <div class="product-card">
-                    <div class="product-image">
-                        <img src="resources/img_6.png" alt="Lámpara Decorativa">
-                    </div>
-                    <div class="product-info">
-                        <h3>Lámpara Decorativa</h3>
-                        <p class="product-description">Arte y funcionalidad en una pieza</p>
-                        <p class="product-price">$62.000</p>
-                        <button class="btn-secondary">Consultar</button>
-                    </div>
-                </div>
+            <div class="catalog-grid" id="catalog-grid">
+                <!-- Los productos se cargarán dinámicamente desde Google Sheets -->
             </div>
         </div>
     </section>
@@ -157,20 +112,8 @@
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="info-item">
-                        <h4>📍 Ubicación</h4>
-                        <p>Ciudad, País</p>
-                    </div>
-                    <div class="info-item">
                         <h4>📧 Email</h4>
                         <p>contacto@hilosdeluz.com</p>
-                    </div>
-                    <div class="info-item">
-                        <h4>📱 WhatsApp</h4>
-                        <p>+00 000 000 0000</p>
-                    </div>
-                    <div class="info-item">
-                        <h4>🕒 Horario</h4>
-                        <p>Lun - Sáb: 9:00 AM - 6:00 PM</p>
                     </div>
                 </div>
 
@@ -184,6 +127,18 @@
             </div>
         </div>
     </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div class="lightbox-caption"></div>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5493512119851" target="_blank" class="whatsapp-float" id="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Footer -->
     <footer class="footer">
