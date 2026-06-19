@@ -137,7 +137,7 @@ body {
 
 /* Hero Section */
 .hero {
-    background: url('resources/hero.png');
+    background: url('/resources/hero.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
