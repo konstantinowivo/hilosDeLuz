@@ -1,8 +1,12 @@
 import { ref, computed } from 'vue'
-import { GoogleSheetsService } from '../services/googleSheetsService'
+import { SanityService } from '../services/sanityService'
 
 /**
  * Composable para manejar la carga y filtrado de productos
+ *
+ * MODIFICADO: Cambiado de GoogleSheetsService a SanityService
+ * MOTIVO: Migración completa a Sanity CMS
+ * CAMBIOS: Solo el import del servicio, la interfaz pública se mantiene igual
  */
 export function useProducts() {
   const allProducts = ref([])
@@ -23,14 +27,16 @@ export function useProducts() {
   })
 
   /**
-   * Carga los productos desde Google Sheets
+   * Carga los productos desde Sanity CMS
+   *
+   * MODIFICADO: Cambiado GoogleSheetsService a SanityService
    */
   const loadProducts = async () => {
     isLoading.value = true
     error.value = null
 
     try {
-      allProducts.value = await GoogleSheetsService.loadProducts()
+      allProducts.value = await SanityService.loadProducts()
     } catch (err) {
       error.value = 'Error al cargar los productos. Por favor, intenta más tarde.'
       console.error('Error loading products:', err)

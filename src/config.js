@@ -14,10 +14,11 @@
  */
 
 export const config = {
-  // Google Sheets
-  GOOGLE_SHEET_ID: import.meta.env.VITE_GOOGLE_SHEET_ID,
-  GOOGLE_SHEET_NAME: import.meta.env.VITE_GOOGLE_SHEET_NAME || 'Productos',
-  GOOGLE_SHEET_CSV_URL: import.meta.env.VITE_GOOGLE_SHEET_CSV_URL,
+  // Sanity CMS
+  // MODIFICADO: Reemplazadas variables de Google Sheets por Sanity
+  SANITY_PROJECT_ID: import.meta.env.VITE_SANITY_PROJECT_ID,
+  SANITY_DATASET: import.meta.env.VITE_SANITY_DATASET || 'production',
+  SANITY_API_VERSION: import.meta.env.VITE_SANITY_API_VERSION || '2024-01-01',
 
   // WhatsApp
   WHATSAPP_NUMBER: import.meta.env.VITE_WHATSAPP_NUMBER,
@@ -41,10 +42,11 @@ export const config = {
 }
 
 // Validación en desarrollo: avisar si faltan variables de entorno
+// MODIFICADO: Actualizadas variables requeridas (Sanity en vez de Google Sheets)
 if (import.meta.env.DEV) {
   const requiredVars = [
-    'VITE_GOOGLE_SHEET_ID',
-    'VITE_GOOGLE_SHEET_CSV_URL',
+    'VITE_SANITY_PROJECT_ID',
+    'VITE_SANITY_DATASET',
     'VITE_WHATSAPP_NUMBER',
     'VITE_INSTAGRAM_URL',
     'VITE_FACEBOOK_URL',
