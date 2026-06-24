@@ -10,7 +10,6 @@
     <div class="product-info">
       <h3>{{ product.nombre }}</h3>
       <p class="product-description">{{ product.descripcion }}</p>
-      <p class="product-price">{{ product.precio }}</p>
       <button
         class="btn-secondary btn-consultar"
         @click="handleConsultar"
@@ -42,7 +41,7 @@ const handleImageClick = () => {
 }
 
 const handleConsultar = () => {
-  const message = `Hola! Me interesa consultar por la *${props.product.nombre}* (${props.product.precio}). ¿Podrías darme más información? Gracias!`
+  const message = `Hola! Me interesa consultar por la *${props.product.nombre}*. ¿Podrías darme más información? Gracias!`
   const encodedMessage = encodeURIComponent(message)
   const whatsappUrl = `https://wa.me/${config.WHATSAPP_NUMBER}?text=${encodedMessage}`
   window.open(whatsappUrl, '_blank')

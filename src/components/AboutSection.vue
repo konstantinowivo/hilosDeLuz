@@ -1,9 +1,9 @@
 <template>
   <section id="sobre-nosotros" class="about">
     <div class="container">
+      <h2 class="section-title">Sobre Nosotros</h2>
       <div class="about-content">
         <div class="about-text">
-          <h2 class="section-title">Sobre Nosotros</h2>
           <p>
             Siempre me gustó crear con mis manos. Hay algo en el proceso de construir,
             de dar forma, que conecta con lo más profundo de uno. Durante un tiempo,
@@ -38,7 +38,7 @@
           <p><em>Gladys</em></p>
         </div>
         <div class="about-image">
-          <img src="/resources/taller_hilos.png?v=2" alt="Taller de lámparas">
+          <img src="/resources/AboutUs_hilos.png" alt="Taller de lámparas">
         </div>
       </div>
     </div>

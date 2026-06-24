@@ -26,6 +26,10 @@ body {
     overflow-x: hidden;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    text-align: center !important;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -330,6 +334,8 @@ section {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
     border-top: 3px solid var(--sand-color);
+    max-width: 450px;
+    margin: 0 auto;
 }
 
 .product-card:hover {
