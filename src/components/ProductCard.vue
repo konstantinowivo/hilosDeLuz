@@ -41,7 +41,7 @@ const handleImageClick = () => {
 }
 
 const handleConsultar = () => {
-  const message = `Hola! Me interesa consultar por la *${props.product.nombre}*. ¿Podrías darme más información? Gracias!`
+  const message = `Hola! Me interesa consultar por *${props.product.nombre}*. ¿Podrías darme más información? Gracias!`
   const encodedMessage = encodeURIComponent(message)
   const whatsappUrl = `https://wa.me/${config.WHATSAPP_NUMBER}?text=${encodedMessage}`
   window.open(whatsappUrl, '_blank')
