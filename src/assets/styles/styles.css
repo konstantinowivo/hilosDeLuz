@@ -53,11 +53,21 @@ h1, h2, h3, h4, h5, h6 {
     padding: 1rem 20px;
 }
 
+.logo a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .logo h1 {
     color: var(--primary-color);
-    font-size: 1.8rem;
+    font-size: 2.18rem;
     font-weight: 700;
     font-family: 'Dancing Script', cursive;
+    transition: var(--transition);
+}
+
+.logo a:hover h1 {
+    opacity: 0.8;
 }
 
 .nav-social {
@@ -67,29 +77,45 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .social-icon {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     transition: var(--transition);
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: white !important;
 }
 
 .social-icon .fa-instagram {
-    color: #E4405F;
+    color: white !important;
+}
+
+.social-icon:has(.fa-instagram) {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
 }
 
 .social-icon .fa-facebook-f {
-    color: #1877F2;
+    color: white !important;
+}
+
+.social-icon:has(.fa-facebook-f) {
+    background: #1877F2;
 }
 
 .social-icon .fa-whatsapp {
-    color: #25D366;
+    color: white !important;
+}
+
+.social-icon:has(.fa-whatsapp) {
+    background: #25D366;
 }
 
 .social-icon:hover {
-    transform: translateY(-3px);
-    opacity: 0.8;
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .nav-menu {
@@ -155,7 +181,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 70px;
 }
 
-.hero-content h2 {
+.hero-content h1 {
     font-size: 3.5rem;
     margin-bottom: 1rem;
     animation: fadeInUp 1s ease;
@@ -167,11 +193,11 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 6rem;
     font-weight: 400;
     letter-spacing: 0.05em;
-    color: var(--camel-color);
+    color: #fef9e7;
     text-shadow:
-        0 0 10px rgba(193, 154, 107, 0.8),
-        0 0 20px rgba(193, 154, 107, 0.6),
-        0 0 30px rgba(193, 154, 107, 0.4),
+        0 0 10px rgba(254, 249, 231, 0.8),
+        0 0 20px rgba(254, 249, 231, 0.6),
+        0 0 30px rgba(254, 249, 231, 0.4),
         2px 2px 4px rgba(0, 0, 0, 0.5);
     animation: fadeInUp 1s ease, glowPulse 3s ease-in-out infinite;
 }
@@ -179,16 +205,16 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes glowPulse {
     0%, 100% {
         text-shadow:
-            0 0 10px rgba(193, 154, 107, 0.8),
-            0 0 20px rgba(193, 154, 107, 0.6),
-            0 0 30px rgba(193, 154, 107, 0.4),
+            0 0 10px rgba(254, 249, 231, 0.8),
+            0 0 20px rgba(254, 249, 231, 0.6),
+            0 0 30px rgba(254, 249, 231, 0.4),
             2px 2px 4px rgba(0, 0, 0, 0.5);
     }
     50% {
         text-shadow:
-            0 0 20px rgba(193, 154, 107, 1),
-            0 0 30px rgba(193, 154, 107, 0.8),
-            0 0 40px rgba(193, 154, 107, 0.6),
+            0 0 20px rgba(254, 249, 231, 1),
+            0 0 30px rgba(254, 249, 231, 0.8),
+            0 0 40px rgba(254, 249, 231, 0.6),
             2px 2px 4px rgba(0, 0, 0, 0.5);
     }
 }
@@ -244,6 +270,10 @@ h1, h2, h3, h4, h5, h6 {
 .btn-secondary:hover {
     background-color: #e89451;
     transform: translateY(-2px);
+}
+
+.product-info .btn-secondary {
+    margin-top: auto;
 }
 
 /* Sections */
@@ -327,6 +357,26 @@ section {
     gap: 2rem;
 }
 
+/* Botón Ver más productos */
+.btn-ver-mas-productos {
+    display: block;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 2rem auto 0;
+    transition: var(--transition);
+}
+
+.btn-ver-mas-productos:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
 .product-card {
     background-color: var(--white);
     border-radius: 10px;
@@ -335,7 +385,10 @@ section {
     transition: var(--transition);
     border-top: 3px solid var(--sand-color);
     max-width: 450px;
+    max-height: 600px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-card:hover {
@@ -346,6 +399,7 @@ section {
 .product-image {
     width: 100%;
     height: 300px;
+    flex-shrink: 0;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -444,17 +498,29 @@ section {
 
 .product-info {
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
 }
 
 .product-info h3 {
     color: var(--dark-color);
     font-size: 1.5rem;
     margin-bottom: 0.5rem;
+    text-align: left !important;
 }
 
 .product-description {
     color: var(--gray);
     margin-bottom: 1rem;
+    text-align: left;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-height: 1.5;
+    max-height: 4.5em;
 }
 
 .product-price {
@@ -553,10 +619,12 @@ section {
     color: var(--sand-color);
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
+    text-align: left !important;
 }
 
 .info-item p {
     color: var(--white);
+    text-align: left;
 }
 
 .contact-form {
@@ -585,6 +653,33 @@ section {
 
 .contact-form textarea {
     resize: vertical;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 15px rgba(244, 162, 97, 0.4);
+    z-index: 999;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.scroll-to-top:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(244, 162, 97, 0.6);
 }
 
 /* WhatsApp Floating Button */
@@ -635,24 +730,29 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2rem;
     margin-bottom: 2rem;
+    text-align: left;
 }
 
 .footer-section h3,
 .footer-section h4 {
     margin-bottom: 1rem;
     color: var(--sand-color);
+    text-align: left !important;
 }
 
 .footer-section p {
     color: var(--light-color);
+    text-align: left;
 }
 
 .footer-section ul {
     list-style: none;
+    text-align: left;
 }
 
 .footer-section ul li {
     margin-bottom: 0.5rem;
+    text-align: left;
 }
 
 .footer-section a {
@@ -668,6 +768,7 @@ section {
 .social-links {
     display: flex;
     gap: 1rem;
+    justify-content: flex-start;
 }
 
 .footer-bottom {
@@ -704,7 +805,7 @@ section {
         left: 0;
     }
 
-    .hero-content h2 {
+    .hero-content h1 {
         font-size: 2.5rem;
     }
 
@@ -748,7 +849,7 @@ section {
 }
 
 @media (max-width: 480px) {
-    .hero-content h2 {
+    .hero-content h1 {
         font-size: 2rem;
     }
 
@@ -758,6 +859,14 @@ section {
 
     .section-title {
         font-size: 2rem;
+    }
+
+    .scroll-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 85px;
+        right: 20px;
+        font-size: 1.3rem;
     }
 
     .whatsapp-float {

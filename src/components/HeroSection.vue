@@ -1,7 +1,7 @@
 <template>
   <section id="inicio" class="hero">
     <div class="hero-content">
-      <h2 class="hero-title">Hilos de Luz</h2>
+      <h1 class="hero-title">Hilos de Luz</h1>
       <p>Lámparas artesanales hechas a mano con amor y dedicación</p>
       <a href="#catalogo" class="btn-primary" @click.prevent="scrollToCatalog">
         Ver Catálogo

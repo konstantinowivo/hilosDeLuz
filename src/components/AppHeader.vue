@@ -3,7 +3,9 @@
     <nav class="navbar">
       <div class="container">
         <div class="logo">
-          <h1>Hilos de Luz</h1>
+          <a href="#inicio" @click.prevent="scrollToSection('#inicio')" aria-label="Ir al inicio">
+            <h1>Hilos de Luz</h1>
+          </a>
         </div>
 
         <ul class="nav-menu" :class="{ active: isMenuOpen }">

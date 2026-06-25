@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Lámpara colgante artesanal -->
+  <defs>
+    <linearGradient id="lampGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f4a261;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e76f51;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Cable muy corto -->
+  <line x1="50" y1="1" x2="50" y2="10" stroke="#264653" stroke-width="4"/>
+
+  <!-- Base superior -->
+  <circle cx="50" cy="10" r="7" fill="#264653"/>
+
+  <!-- Cuerpo de la lámpara (forma artesanal máxima) -->
+  <path d="M 10 15 Q 5 45 8 70 Q 10 97 50 97 Q 90 97 92 70 Q 95 45 90 15 Z"
+        fill="url(#lampGradient)"
+        stroke="#C19A6B"
+        stroke-width="3"/>
+
+  <!-- Detalles de hilos/tramas -->
+  <path d="M 15 28 Q 50 32 85 28" fill="none" stroke="#C19A6B" stroke-width="2" opacity="0.7"/>
+  <path d="M 12 45 Q 50 49 88 45" fill="none" stroke="#C19A6B" stroke-width="2" opacity="0.7"/>
+  <path d="M 10 62 Q 50 66 90 62" fill="none" stroke="#C19A6B" stroke-width="2" opacity="0.7"/>
+  <path d="M 9 78 Q 50 82 91 78" fill="none" stroke="#C19A6B" stroke-width="2" opacity="0.7"/>
+
+  <!-- Luz/brillo -->
+  <circle cx="50" cy="58" r="32" fill="#FEF9E7" opacity="0.3"/>
+  <circle cx="50" cy="58" r="22" fill="#FEF9E7" opacity="0.5"/>
+  <circle cx="50" cy="58" r="14" fill="#FEF9E7" opacity="0.6"/>
+</svg>

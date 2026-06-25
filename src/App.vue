@@ -7,6 +7,7 @@
     <ContactSection />
     <AppFooter />
     <WhatsAppButton />
+    <ScrollToTopButton />
     <Lightbox />
   </div>
 </template>
@@ -19,6 +20,7 @@ import AboutSection from './components/AboutSection.vue'
 import ContactSection from './components/ContactSection.vue'
 import AppFooter from './components/AppFooter.vue'
 import WhatsAppButton from './components/WhatsAppButton.vue'
+import ScrollToTopButton from './components/ScrollToTopButton.vue'
 import Lightbox from './components/Lightbox.vue'
 </script>
 

@@ -2,12 +2,12 @@
   <section id="contacto" class="contact">
     <div class="container">
       <h2 class="section-title">Contáctanos</h2>
-      <p class="section-subtitle">¿Tienes alguna pregunta? ¡Escríbenos!</p>
+      <p class="section-subtitle">¿Tenés alguna consulta? ¡Escribinos!</p>
 
       <div class="contact-content">
         <div class="contact-info">
           <div class="info-item">
-            <h4>📧 Email</h4>
+            <h4>Email</h4>
             <p>{{ contactEmail }}</p>
           </div>
         </div>

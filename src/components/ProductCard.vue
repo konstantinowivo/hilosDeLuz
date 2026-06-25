@@ -3,7 +3,7 @@
     <div class="product-image" @click="handleImageClick">
       <img
         :src="product.imagenUrl"
-        :alt="product.nombre"
+        :alt="`Lámpara artesanal ${product.nombre} - ${product.categoria}`"
         loading="lazy"
       >
     </div>

@@ -31,29 +31,40 @@
       </div>
 
       <!-- Products Grid -->
-      <div v-else class="catalog-grid">
-        <TransitionGroup name="product-fade">
-          <ProductCard
-            v-for="product in filteredProducts"
-            :key="product.id"
-            :product="product"
-          />
-        </TransitionGroup>
+      <div v-else>
+        <div class="catalog-grid">
+          <TransitionGroup name="product-fade">
+            <ProductCard
+              v-for="product in displayedProducts"
+              :key="product.id"
+              :product="product"
+            />
+          </TransitionGroup>
 
-        <!-- Empty State -->
-        <div
-          v-if="filteredProducts.length === 0 && !isLoading"
-          style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--gray);"
-        >
-          <p>No hay productos en esta categoría.</p>
+          <!-- Empty State -->
+          <div
+            v-if="filteredProducts.length === 0 && !isLoading"
+            style="grid-column: 1/-1; text-align: center; padding: 3rem; color: var(--gray);"
+          >
+            <p>No hay productos en esta categoría.</p>
+          </div>
         </div>
+
+        <!-- Ver más button (solo móvil) -->
+        <button
+          v-if="showExpandButton"
+          class="btn-ver-mas-productos"
+          @click="toggleExpanded"
+        >
+          {{ isExpanded ? 'Ver menos' : 'Ver más' }}
+        </button>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import ProductCard from './ProductCard.vue'
 import { useProducts } from '../composables/useProducts'
 
@@ -66,12 +77,45 @@ const {
   setCategory
 } = useProducts()
 
+const isExpanded = ref(false)
+const isMobile = ref(false)
+const MOBILE_PRODUCT_LIMIT = 3
+
+// Detectar si es móvil
+const checkMobile = () => {
+  isMobile.value = window.innerWidth <= 768
+}
+
+// Productos a mostrar (limitados en móvil si está colapsado)
+const displayedProducts = computed(() => {
+  if (!isMobile.value || isExpanded.value) {
+    return filteredProducts.value
+  }
+  return filteredProducts.value.slice(0, MOBILE_PRODUCT_LIMIT)
+})
+
+// Mostrar botón solo si es móvil y hay más de 3 productos
+const showExpandButton = computed(() => {
+  return isMobile.value && filteredProducts.value.length > MOBILE_PRODUCT_LIMIT
+})
+
+const toggleExpanded = () => {
+  isExpanded.value = !isExpanded.value
+}
+
 const handleCategoryChange = () => {
   setCategory(selectedCategory.value)
+  isExpanded.value = false // Reset al cambiar categoría
 }
 
 onMounted(async () => {
   await loadProducts()
+  checkMobile()
+  window.addEventListener('resize', checkMobile)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', checkMobile)
 })
 </script>
 

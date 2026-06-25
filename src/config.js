@@ -26,7 +26,8 @@ export const config = {
   // Redes Sociales
   SOCIAL_MEDIA: {
     instagram: import.meta.env.VITE_INSTAGRAM_URL,
-    facebook: import.meta.env.VITE_FACEBOOK_URL
+    facebook: import.meta.env.VITE_FACEBOOK_URL,
+    whatsapp: `https://wa.me/${import.meta.env.VITE_WHATSAPP_NUMBER}`
   },
 
   // Categorías de productos (constantes, no necesitan estar en .env)

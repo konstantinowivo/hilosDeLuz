@@ -1,0 +1,8 @@
+# robots.txt para Hilos de Luz
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /.git
+
+# Sitemap
+Sitemap: https://konstantinowivo.github.io/hilosDeLuz/sitemap.xml

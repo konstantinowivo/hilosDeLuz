@@ -18,9 +18,15 @@
         <div class="footer-section">
           <h4>Síguenos</h4>
           <div class="social-links">
-            <a :href="socialMedia.instagram" target="_blank" aria-label="Instagram">Instagram</a>
-            <a :href="socialMedia.facebook" target="_blank" aria-label="Facebook">Facebook</a>
-            <a href="#" aria-label="Pinterest">Pinterest</a>
+            <a :href="socialMedia.instagram" target="_blank" class="social-icon" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a :href="socialMedia.facebook" target="_blank" class="social-icon" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a :href="socialMedia.whatsapp" target="_blank" class="social-icon" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
           </div>
         </div>
       </div>
