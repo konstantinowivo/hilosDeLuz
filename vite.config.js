@@ -10,7 +10,7 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  base: '/hilosDeLuz/',
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
