@@ -57,12 +57,25 @@ const formData = reactive({
 })
 
 const handleSubmit = () => {
-  alert('Gracias por tu mensaje. Te contactaremos pronto!')
-  // Reset form
-  formData.nombre = ''
-  formData.email = ''
-  formData.telefono = ''
-  formData.mensaje = ''
+  // Construir el asunto y cuerpo del correo
+  const asunto = encodeURIComponent(`Consulta de ${formData.nombre}`)
+  const cuerpo = encodeURIComponent(
+    `Nombre: ${formData.nombre}\n` +
+    `Email: ${formData.email}\n` +
+    `Teléfono: ${formData.telefono || 'No proporcionado'}\n\n` +
+    `Mensaje:\n${formData.mensaje}`
+  )
+
+  // Abrir el cliente de correo con los datos prellenados
+  window.location.href = `mailto:${contactEmail}?subject=${asunto}&body=${cuerpo}`
+
+  // Reset form después de un breve delay
+  setTimeout(() => {
+    formData.nombre = ''
+    formData.email = ''
+    formData.telefono = ''
+    formData.mensaje = ''
+  }, 500)
 }
 </script>
 
