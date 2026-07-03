@@ -2,14 +2,14 @@
   "name": "Hilos de Luz - Lámparas Artesanales",
   "short_name": "Hilos de Luz",
   "description": "Lámparas artesanales hechas a mano con amor y dedicación",
-  "start_url": "/hilosDeLuz/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#f4a261",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/hilosDeLuz/favicon.svg",
+      "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any maskable"
