@@ -13,6 +13,8 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useNavigation } from '../composables/useNavigation'
+import heroDesktop from '/resources/hero.png'
+import heroMobile from '/resources/taller_hilos.png'
 
 const { scrollToSection } = useNavigation()
 
@@ -39,7 +41,7 @@ onUnmounted(() => {
 // Computed property for responsive background image
 const heroBackgroundImage = computed(() => {
   const isMobile = windowWidth.value <= 768
-  const imageUrl = isMobile ? '/resources/taller_hilos.png' : '/resources/hero.png'
+  const imageUrl = isMobile ? heroMobile : heroDesktop
   return `url('${imageUrl}')`
 })
 </script>
