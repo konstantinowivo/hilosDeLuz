@@ -4,7 +4,7 @@
       <div class="container">
         <div class="logo">
           <a href="#inicio" @click.prevent="scrollToSection('#inicio')" aria-label="Ir al inicio">
-            <h1>Hilos de Luz</h1>
+            <img src="/resources/logo_nav.png" alt="Hilos de Luz" class="logo-image">
           </a>
         </div>
 

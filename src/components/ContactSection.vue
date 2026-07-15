@@ -5,13 +5,6 @@
       <p class="section-subtitle">¿Tenés alguna consulta? ¡Escribinos!</p>
 
       <div class="contact-content">
-        <div class="contact-info">
-          <div class="info-item">
-            <h4>Email</h4>
-            <p>{{ contactEmail }}</p>
-          </div>
-        </div>
-
         <form class="contact-form" @submit.prevent="handleSubmit">
           <input
             v-model="formData.nombre"

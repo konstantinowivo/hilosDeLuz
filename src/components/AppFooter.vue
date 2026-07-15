@@ -16,6 +16,10 @@
           </ul>
         </div>
         <div class="footer-section">
+          <h4>Contacto</h4>
+          <p>{{ contactEmail }}</p>
+        </div>
+        <div class="footer-section">
           <h4>Síguenos</h4>
           <div class="social-links">
             <a :href="socialMedia.instagram" target="_blank" class="social-icon" aria-label="Instagram">
@@ -44,6 +48,7 @@ import { config } from '../config'
 
 const { scrollToSection } = useNavigation()
 const socialMedia = config.SOCIAL_MEDIA
+const contactEmail = config.CONTACT_EMAIL
 
 const currentYear = computed(() => new Date().getFullYear())
 </script>

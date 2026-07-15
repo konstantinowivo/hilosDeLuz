@@ -1,5 +1,5 @@
 <template>
-  <section id="inicio" class="hero">
+  <section id="inicio" class="hero" :style="{ backgroundImage: heroBackgroundImage }">
     <div class="hero-content">
       <h1 class="hero-title">Hilos de Luz</h1>
       <p>Lámparas artesanales hechas a mano con amor y dedicación</p>
@@ -11,6 +11,7 @@
 </template>
 
 <script setup>
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useNavigation } from '../composables/useNavigation'
 
 const { scrollToSection } = useNavigation()
@@ -18,6 +19,29 @@ const { scrollToSection } = useNavigation()
 const scrollToCatalog = () => {
   scrollToSection('#catalogo')
 }
+
+// Reactive window width
+const windowWidth = ref(window.innerWidth)
+
+// Update window width on resize
+const updateWidth = () => {
+  windowWidth.value = window.innerWidth
+}
+
+onMounted(() => {
+  window.addEventListener('resize', updateWidth)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', updateWidth)
+})
+
+// Computed property for responsive background image
+const heroBackgroundImage = computed(() => {
+  const isMobile = windowWidth.value <= 768
+  const imageUrl = isMobile ? '/resources/taller_hilos.png' : '/resources/hero.png'
+  return `url('${imageUrl}')`
+})
 </script>
 
 <style scoped>
